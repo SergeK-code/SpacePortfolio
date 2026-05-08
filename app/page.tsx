@@ -5,6 +5,9 @@ import Projects from "@/components/main/Projects";
 import Skills from "@/components/main/Skills";
 import Experience from "@/components/main/Experience";
 import Contact from "@/components/main/Contact";
+import { getHomeMetadata } from "@/lib/site-config";
+
+export const metadata = getHomeMetadata();
 
 export default function Home() {
   return (

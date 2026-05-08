@@ -8,13 +8,14 @@ import { slideInFromBottom } from "@/utils/motion";
 
 interface Props {
     src: string;
+    href: string;
     title: string;
     description: string;
     tags: string[];
     index: number;
 }
 
-const ProjectCard = ({ src, title, description, tags, index }: Props) => {
+const ProjectCard = ({ src, href, title, description, tags, index }: Props) => {
     return (
         <InView triggerOnce={false}>
             {({ inView, ref }) => (
@@ -34,36 +35,44 @@ const ProjectCard = ({ src, title, description, tags, index }: Props) => {
                         damping: 20,
                     }}
                 >
-                    <div className="relative overflow-hidden rounded-xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md h-full flex flex-col">
-                        <div className="relative w-full h-48 overflow-hidden">
-                            <Image
-                                src={src}
-                                alt={title}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
+                    <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${title} website`}
+                        className="block h-full"
+                    >
+                        <div className="relative overflow-hidden rounded-xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md h-full flex flex-col">
+                            <div className="relative w-full h-48 overflow-hidden">
+                                <Image
+                                    src={src}
+                                    alt={title}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
 
-                        <div className="p-5 flex flex-col gap-3 flex-1">
-                            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-                                {title}
-                            </h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">
-                                {description}
-                            </p>
+                            <div className="p-5 flex flex-col gap-3 flex-1">
+                                <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+                                    {title}
+                                </h3>
+                                <p className="text-gray-400 text-sm leading-relaxed">
+                                    {description}
+                                </p>
 
-                            <div className="flex flex-wrap gap-2 mt-auto">
-                                {tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="text-xs px-2 py-1 rounded-full bg-[#7042f820] border border-[#7042f861] text-purple-300"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
+                                <div className="flex flex-wrap gap-2 mt-auto">
+                                    {tags.map((tag) => (
+                                        <span
+                                            key={tag}
+                                            className="text-xs px-2 py-1 rounded-full bg-[#7042f820] border border-[#7042f861] text-purple-300"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </motion.div>
             )}
         </InView>

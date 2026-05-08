@@ -5,6 +5,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { motion } from "framer-motion";
+import { navigation } from "@/src/config/navigation";
+import { site } from "@/src/config/site";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -20,35 +22,25 @@ const Navbar = () => {
                         onClick={() => setMenuOpen(false)}
                     >
                         <Image
-                            src="/logo.png"
-                            alt="logo"
+                            src={site.assets.logo}
+                            alt={`${site.person.name} logo`}
                             width={50}
                             height={50}
                             className="cursor-pointer hover:animate-spin w-10"
                         />
 
                         <span className="font-bold ml-[10px] block text-gray-300 z-50 md:text-lg text-xl">
-                            Jenin Joseph
+                            {site.person.name}
                         </span>
                     </a>
 
                     <div className="hidden w-3/6 lg:w-1/2 h-full md:flex flex-row items-center justify-between md:mx-auto lg:pr-2">
                         <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
-                            <a href="#about" className="cursor-pointer">
-                                About me
-                            </a>
-                            <a href="#skills" className="cursor-pointer">
-                                Skills
-                            </a>
-                            <a href="#experience" className="cursor-pointer">
-                                Experience
-                            </a>
-                            <a href="#projects" className="cursor-pointer">
-                                Projects
-                            </a>
-                            <a href="#contact" className="cursor-pointer">
-                                Contact
-                            </a>
+                            {navigation.items.map((item) => (
+                                <a key={item.id} href={item.href} className="cursor-pointer">
+                                    {item.label}
+                                </a>
+                            ))}
                         </div>
                     </div>
 
@@ -92,41 +84,16 @@ const Navbar = () => {
                 className="md:hidden overflow-hidden"
             >
                 <div className="flex flex-col items-center gap-4 py-4 bg-[#0300145e] backdrop-blur-md border-t border-[#7042f88b] rounded-b-2xl mt-2">
-                    <a
-                        href="#about"
-                        className="cursor-pointer text-gray-200"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        About me
-                    </a>
-                    <a
-                        href="#skills"
-                        className="cursor-pointer text-gray-200"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        Skills
-                    </a>
-                    <a
-                        href="#experience"
-                        className="cursor-pointer text-gray-200"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        Experience
-                    </a>
-                    <a
-                        href="#projects"
-                        className="cursor-pointer text-gray-200"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        Projects
-                    </a>
-                    <a
-                        href="#contact"
-                        className="cursor-pointer text-gray-200"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        Contact
-                    </a>
+                    {navigation.items.map((item) => (
+                        <a
+                            key={item.id}
+                            href={item.href}
+                            className="cursor-pointer text-gray-200"
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            {item.label}
+                        </a>
+                    ))}
                 </div>
             </motion.div>
             </div>

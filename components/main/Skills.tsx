@@ -12,6 +12,7 @@ import SkillText from "../sub/SkillText";
 import { InView } from "react-intersection-observer";
 import { slideInFromLeft, slideInFromRight } from "@/utils/motion";
 import { motion } from "framer-motion";
+import { skillsContent } from "@/src/content/skills";
 
 const Skills = () => {
     return (
@@ -147,13 +148,13 @@ const Skills = () => {
             <div className="hidden md:block w-full h-full absolute top-24">
                 <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
                     <video
-                        className="w-full h-auto"
+                        className="pointer-events-none w-full h-auto"
                         preload="false"
                         playsInline
                         loop
                         muted
                         autoPlay
-                        src="/cards-video.webm"
+                        src={skillsContent.backgroundVideoSrc}
                     />
                 </div>
             </div>

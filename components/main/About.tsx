@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { slideInFromBottom, slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
 import { InView } from "react-intersection-observer";
+import { aboutContent } from "@/src/content/about";
 
 const About = () => {
     return (
@@ -22,10 +23,10 @@ const About = () => {
                             variants={slideInFromTop}
                             className="text-[40px] pt-[5rem] pb-3 md:p-0 font-medium text-center text-gray-200 z-50"
                         >
-                            About
+                            {aboutContent.heading.title}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
                                 {" "}
-                                Me{" "}
+                                {aboutContent.heading.accent}{" "}
                             </span>
                         </motion.div>
                     )}
@@ -43,8 +44,8 @@ const About = () => {
                             className="flex flex-col items-center w-auto h-auto rounded-full overflow-hidden border-[6px] border-[#7042f88b] bg-gradient-to-r from-purple-500 to-cyan-500"
                         >
                             <Image
-                                src="/jenin.jpg"
-                                alt="profile"
+                                src={aboutContent.profile.imageSrc}
+                                alt={aboutContent.profile.imageAlt}
                                 width={250}
                                 height={250}
                                 priority
@@ -63,7 +64,7 @@ const About = () => {
                             className="Welcome-box px-[15px] py-[8px] z-[20] brder my-[20px] border-[#7042f88b] opacity-[0.9]"
                         >
                             <h1 className="Welcome-text text-[20px] font-bold">
-                                Jenin Joseph
+                                {aboutContent.profile.name}
                             </h1>
                         </motion.div>
                     )}
@@ -79,19 +80,7 @@ const About = () => {
                             className="Welcome-box px-[15px] w-[90%] md:w-3/4 py-[8px] z-[20] brder mb-[20px] border-[#7042f88b] opacity-[0.9]"
                         >
                             <h1 className="Welcome-text text-[16px] w-full text-justify">
-                                As a passionate Full Stack Developer with
-                                expertise in React, TypeScript, Django, REST,
-                                HTML, and CSS, I excel in crafting seamless
-                                digital experiences. My journey includes roles
-                                as a MuLearn Intern, Union Chairman at SNGIST,
-                                and CEO at SNGIST IEDC, where I&apos;ve driven
-                                innovation and led digital transformations. As a
-                                leader, I&apos;ve empowered teams towards
-                                excellence and fostered an entrepreneurial
-                                spirit. I&apos;m keen to connect with
-                                like-minded tech enthusiasts and visionaries to
-                                explore new opportunities and push the
-                                boundaries of innovation.
+                                {aboutContent.bio.join(" ")}
                             </h1>
                         </motion.div>
                     )}
@@ -99,7 +88,7 @@ const About = () => {
             </div>
             <div className="absolute z-[20] bottom-[-4rem] md:bottom-[10px] px-[5px]">
                 <div className="cursive text-[20px] font-medium text-center text-gray-300">
-                    Shaping Tomorrow with Code and Creativity
+                    {aboutContent.footerLine}
                 </div>
             </div>
 
@@ -110,8 +99,8 @@ const About = () => {
                     autoPlay
                     playsInline
                     preload="false"
-                    className="h-full"
-                    src="/encryption.webm"
+                    className="pointer-events-none h-full"
+                    src={aboutContent.media.backgroundVideoSrc}
                 />
             </div>
         </section>
