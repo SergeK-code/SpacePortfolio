@@ -91,8 +91,7 @@ const Contact = () => {
 
   const dialCode = selectedCountry?.dialCode ?? "";
   const phoneDigits = digitsOnly(phone);
-  const phoneE164 =
-    dialCode && phoneDigits ? `${dialCode}${phoneDigits}` : "";
+  const phoneE164 = dialCode && phoneDigits ? `${dialCode}${phoneDigits}` : "";
 
   return (
     <section
@@ -182,12 +181,10 @@ const Contact = () => {
             >
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/15" />
               <form
-                name={contactContent.form.netlify.formName}
+                name="contact"
                 method="POST"
                 data-netlify="true"
-                data-netlify-honeypot={
-                  contactContent.form.netlify.honeypotFieldName
-                }
+                data-netlify-honeypot="bot-field"
                 onSubmit={async (e) => {
                   e.preventDefault();
                   setSent(false);
@@ -201,12 +198,12 @@ const Contact = () => {
                   try {
                     const country = selectedCountry!;
                     const payload: Record<string, string> = {
-                      "form-name": contactContent.form.netlify.formName,
-                      [contactContent.form.netlify.honeypotFieldName]: "",
+                      "form-name": "contact",
+                      "bot-field": "",
                       name: name.trim(),
                       email: email.trim(),
-                      country: country.name,
-                      countryCode: country.dialCode,
+                      country: selectedCountry!.name,
+                      countryCode: selectedCountry!.dialCode,
                       phone: phoneDigits,
                       phoneE164,
                       zipCode: zipCode.trim(),
@@ -215,14 +212,19 @@ const Contact = () => {
                       message: message.trim(),
                     };
 
-                    console.log(payload);
+                    //console.log(payload);
+
+                    const body = new URLSearchParams();
+                    Object.entries(payload).forEach(([key, value]) => {
+                      body.append(key, value);
+                    });
 
                     const res = await fetch("/netlify-forms.html", {
                       method: "POST",
                       headers: {
                         "Content-Type": "application/x-www-form-urlencoded",
                       },
-                      body: encodeFormBody(payload),
+                      body: body.toString(),
                     });
 
                     if (!res.ok) throw new Error("submit_failed");
@@ -243,19 +245,8 @@ const Contact = () => {
                 }}
                 className="relative flex flex-col gap-4"
               >
-                <input
-                  type="hidden"
-                  name="form-name"
-                  value={contactContent.form.netlify.formName}
-                />
-                <p className="hidden">
-                  <label>
-                    Don’t fill this out:{" "}
-                    <input
-                      name={contactContent.form.netlify.honeypotFieldName}
-                    />
-                  </label>
-                </p>
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
                 <input
                   type="text"
                   name="name"
