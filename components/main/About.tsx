@@ -98,7 +98,7 @@ const About = () => {
                     muted
                     autoPlay
                     playsInline
-                    preload="false"
+                    preload="none"
                     className="pointer-events-none h-full"
                     src={aboutContent.media.backgroundVideoSrc}
                 />

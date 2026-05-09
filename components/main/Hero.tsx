@@ -9,6 +9,7 @@ const Hero = () => {
                 autoPlay
                 muted
                 loop
+                playsInline
                 className="pointer-events-none rotate-100 absolute md:top-[-240px] lg:top-[-335px] top-[-400px] left-0 z-[0] w-full h-full object-cover"
             >
                 <source src={heroContent.media.backgroundVideoSrc} type="video/webm" />

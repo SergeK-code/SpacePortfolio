@@ -87,3 +87,16 @@ body {
 ::-webkit-scrollbar {
     width: 10px;
 }
+
+.country-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.country-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.country-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #7042f8;
+    border-radius: 2px;
+}

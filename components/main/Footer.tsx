@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  RxDiscordLogo,
-  RxGithubLogo,
-  RxInstagramLogo,
-  RxTwitterLogo,
-  RxLinkedinLogo,
-} from "react-icons/rx";
-
-import { FaYoutube } from "react-icons/fa";
+import { RxGithubLogo, RxLinkedinLogo } from "react-icons/rx";
 import { site } from "@/src/config/site";
 import { footerContent } from "@/src/content/footer";
 

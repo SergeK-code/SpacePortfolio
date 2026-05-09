@@ -6,20 +6,11 @@ export const contactContent = {
   availability: "Open to opportunities",
   form: {
     labels: {
+      country: "Country",
       phone: "Phone number",
-      countryCode: "Country code",
       budget: "Budget range",
       timeline: "Timeline",
     },
-    countryCodes: [
-      { value: "+1", label: "United States (+1)" },
-      { value: "+44", label: "United Kingdom (+44)" },
-      { value: "+33", label: "France (+33)" },
-      { value: "+49", label: "Germany (+49)" },
-      { value: "+961", label: "Lebanon (+961)" },
-      { value: "+971", label: "UAE (+971)" },
-      { value: "+966", label: "Saudi Arabia (+966)" },
-    ],
     budgetOptions: [
       { value: "lt-1000", label: "Under $1,000" },
       { value: "1000-5000", label: "$1,000 – $5,000" },
@@ -34,7 +25,9 @@ export const contactContent = {
     placeholders: {
       name: "Your Name",
       email: "Your Email",
+      country: "Country Code",
       phone: "Phone number",
+      zipCode: "ZIP / Postal code",
       message: "Your Message",
     },
     submit: {

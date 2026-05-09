@@ -60,9 +60,6 @@ const SpaceshipScroll = () => {
       const current = path.getPointAtLength(distance);
 
       const lookAhead = 2;
-      const ahead = path.getPointAtLength(
-        Math.min(total, distance + lookAhead),
-      );
 
       const prevProgress = lastProgressRef.current ?? v;
       const scrollingDown = v >= prevProgress;

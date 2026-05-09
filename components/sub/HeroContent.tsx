@@ -72,9 +72,11 @@ const HeroContent = () => {
                   variants={slideInFromLeft(0.8)}
                   className="text-sm md:text-md text-gray-400 my-5 max-w-[650px] z-30"
                 >
-                  {heroContent.bullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
+                  <ul className="list-none space-y-1 pl-0">
+                    {heroContent.bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
                 </motion.div>
               )}
             </InView>
