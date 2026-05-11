@@ -6,6 +6,14 @@ export const projectsContent = {
 
   items: [
     {
+      imageSrc: "/images/projects/actros-showcase.webp",
+      href: "https://actrosshowcase.netlify.app/",
+      title: "ACTROS Showcase",
+      description:
+        "A dynamic web application built for ACTROS, a leading truck manufacturer. The platform serves as a comprehensive showcase of their latest models, features, and innovations. It provides an engaging user experience with interactive elements, detailed specifications, and multimedia content to highlight the capabilities of ACTROS trucks.",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    },
+    {
       imageSrc: "/images/projects/jad-steel.webp",
       href: "http://jad-steel.com/",
       title: "Jad Steel",
