@@ -32,7 +32,7 @@ export const site = {
     icon: "/images/brand/sk-dev-logo.webp",
     logo: "/images/brand/sk-dev-logo.webp",
     heroIllustration: "/images/hero/illustration-dark.svg",
-    ogImage: "/images/about/profile.webp",
+    ogImage: "/images/brand/sk-dev-logo.webp",
   },
   social: {
     links: [
