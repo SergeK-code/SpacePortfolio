@@ -4,6 +4,10 @@ export const site = {
   urls: {
     canonical: "https://sergekhalil.com",
   },
+  company: {
+    name: "SK Development",
+  },
+
   person: {
     name: "Serge Khalil",
     roles: [
@@ -12,7 +16,7 @@ export const site = {
       "Mobile Developer",
       "AI Prompt Engineer",
     ],
-    location: "Mount Lebanon, Lebanon",
+    location: "Lebanon",
     email: "sergekhalil@live.com",
   },
   brand: {
@@ -25,8 +29,8 @@ export const site = {
   assets: {
     // NOTE: These are the only assets currently confirmed in `/public` by the repo scan.
     // Replace/add real assets in `/public` then update these paths.
-    icon: "/images/brand/logo-sk.webp",
-    logo: "/images/brand/logo-sk.webp",
+    icon: "/images/brand/sk-dev-logo.webp",
+    logo: "/images/brand/sk-dev-logo.webp",
     heroIllustration: "/images/hero/illustration-dark.svg",
     ogImage: "/images/about/profile.webp",
   },
